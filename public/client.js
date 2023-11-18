@@ -1,26 +1,49 @@
-// client-side js
-// run by the browser each time your view template is loaded
-
-// by default, you've got jQuery,
-// add other scripts at the bottom of index.html
-
 $(function() {
   console.log('hello world :o');
-  
-  $.get('/dreams', function(dreams) {
-    dreams.forEach(function(dream) {
-      $('<li></li>').text(dream).appendTo('ul#dreams');
+
+  function submitForm(endpoint, listId) {
+    $('form.' + endpoint).submit(function(event) {
+      event.preventDefault();
+      var resource = $('form.' + endpoint + ' input[placeholder="resource"]').val();
+      var amount = $('form.' + endpoint + ' input[placeholder="amount"]').val();
+      var byWhomForWhom = $('form.' + endpoint + ' input[placeholder="' + (endpoint === 'intakes' ? 'by whom' : 'for whom') + '"]').val();
+
+      var data = {
+        resource: resource,
+        amount: amount,
+        byWhomForWhom: byWhomForWhom
+      };
+
+      $.post('/' + endpoint + '?' + $.param(data), function() {
+        $('<li></li>').text(resource + ' - ' + amount + ' - ' + byWhomForWhom).appendTo('ul#' + listId);
+        $('form.' + endpoint + ' input').val('');
+        $('form.' + endpoint + ' input').focus();
+      });
+    });
+  }
+
+  submitForm('intake', 'intakes');
+  submitForm('need', 'needs');
+  submitForm('want', 'wants');
+
+  // Fetch existing intakes
+  $.get('/intake', function(intakes) {
+    intakes.forEach(function(intake) {
+      $('<li></li>').text(intake.resource + ' - ' + intake.amount + ' - ' + intake.byWhomForWhom).appendTo('ul#intakes');
     });
   });
 
-  $('form').submit(function(event) {
-    event.preventDefault();
-    dream = $('input').val();
-    $.post('/dreams?' + $.param({'dream': dream}), function() {
-      $('<li></li>').text(dream).appendTo('ul#dreams');
-      $('input').val('');
-      $('input').focus();
+  // Fetch existing needs
+  $.get('/need', function(needs) {
+    needs.forEach(function(need) {
+      $('<li></li>').text(need.resource + ' - ' + need.amount + ' - ' + need.byWhomForWhom).appendTo('ul#needs');
     });
   });
 
+  // Fetch existing wants
+  $.get('/want', function(wants) {
+    wants.forEach(function(want) {
+      $('<li></li>').text(want.resource + ' - ' + want.amount + ' - ' + want.byWhomForWhom).appendTo('ul#wants');
+    });
+  });
 });

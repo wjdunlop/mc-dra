@@ -10,8 +10,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Welcome to Glitch!</title>
-    <meta name="description" content="A cool thing made with Glitch">
+    <title>MC-DRA</title>
+    <meta name="description" content="maintained by dxtron">
     <link id="favicon" rel="icon" href="https://gomix.com/favicon-app.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,28 +21,53 @@
   <body>
     <header>
       <h1>
-        A Dream of the Future
+        MC-DRA v0.0.1
       </h1>
+      <p>maintained by dxtron</p>
     </header>
 
     <main>
-      <p class="bold">Oh hi,</p>
-      <p>Tell me your hopes and dreams:</p>
+      <p>Input resources that have been taken in</p>
       <form>
-        <input type="text" maxlength="100" placeholder="Dreams!">
+        <input type="text" maxlength="100" placeholder="resource">
+        <input type="number" placeholder="amount">
+        <input type="text" placeholder="by whom">
         <button type="submit">Submit</button>
       </form>
-      <section class="dreams">
-        <ul id="dreams">
+      <section class="intakes">
+        <ul id="intakes">
         </ul>
       </section>
     </main>
 
-    <footer>
-      <a href="https://glitch.com">
-        Remix this in Glitch
-      </a>
-    </footer>
+    <main>
+      <p>Input resources that are REQUIRED</p>
+      <form>
+        <input type="text" maxlength="100" placeholder="resource">
+        <input type="number" placeholder="amount">
+        <input type="text" placeholder="for whom">
+        <button type="submit">Submit</button>
+      </form>
+      <section class="needs">
+        <ul id="needs">
+        </ul>
+      </section>
+    </main>
+
+
+    <main>
+      <p>Input resources that are wanted</p>
+      <form>
+        <input type="text" maxlength="100" placeholder="resource">
+        <input type="number" placeholder="amount">
+        <input type="text" placeholder="for whom">
+        <button type="submit">Submit</button>
+      </form>
+      <section class="wants">
+        <ul id="wants">
+        </ul>
+      </section>
+    </main>
 
     <!-- Your web-app is https, so your scripts need to be too -->
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"
