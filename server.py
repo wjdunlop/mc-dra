@@ -1,5 +1,6 @@
 import json
 import os
+from typing import List
 from fastapi import Body, FastAPI, Query, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -49,7 +50,7 @@ def get_summary():
 
 
 @app.post("/commit/intake")
-def post_intake(intakes: list[FormData]):
+def post_intake(intakes: List[FormData]):
     print(f"Processing {len(intakes)} intakes:")
     print(intakes)
     for intake in intakes:
@@ -60,7 +61,7 @@ def post_intake(intakes: list[FormData]):
 
 
 @app.post("/commit/need")
-def post_need(needs: list[FormData]):
+def post_need(needs: List[FormData]):
     print(f"Processing {len(needs)} Needs:")
     print(needs)
     for need in needs:
@@ -71,7 +72,7 @@ def post_need(needs: list[FormData]):
 
 
 @app.post("/commit/want")
-def post_want(wants: list[FormData]):
+def post_want(wants: List[FormData]):
     print(f"Processing {len(wants)} Wants:")
     print(wants)
     for want in wants:
