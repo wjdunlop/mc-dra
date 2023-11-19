@@ -20,7 +20,7 @@
 <main>
   <section class="table-container" id="summary-table">
       <h2>Summary Table</h2>
-      <button id="refresh-button">Refresh</button>
+      <button class="refresh-button" ="refresh-button">Refresh</button>
       <table id="intakes-table"></table>
       <hr>
       <table id="needs-table"></table>
@@ -37,9 +37,9 @@
             <input type="text" id="intake-resource" maxlength="100" placeholder="Enter resource" required>
             <label for="intake-amount">Amount</label>
             <input type="number" id="intake-amount" placeholder="Enter amount" required>
-            <label for="intake-whom">By Whom</label>
+            <label for="intake-whom">Who</label>
             <input type="text" id="intake-whom" placeholder="Enter name" required>
-            <button id="intake-submit-button" type="submit">Submit</button>
+            <button class="submit-button" id="intake-submit-button" type="submit">Submit</button>
         </form>
 
 
@@ -48,12 +48,13 @@
           <div id="temporary-intake-section">
               <!-- Temporary data for wants will be displayed here -->
               <button id="intake-commit-button" type="button">Commit</button>
+              <button id="intake-delete-all-button" class="delete-button" type="button">Delete all</button>
               <table id="temporary-intake-table">
                   <thead>
                       <tr>
                           <th>Resource</th>
                           <th>Amount</th>
-                          <th>For Whom</th>
+                          <th>Who</th>
                           <th>Action</th>
                       </tr>
                   </thead>
@@ -73,9 +74,9 @@
             <input type="text" id="need-resource" maxlength="100" placeholder="Enter resource" required>
             <label for="need-amount">Amount</label>
             <input type="number" id="need-amount" placeholder="Enter amount" required>
-            <label for="need-whom">For Whom</label>
+            <label for="need-whom">Who</label>
             <input type="text" id="need-whom" placeholder="Enter name" required>
-            <button id="need-submit-button" type="submit">Submit</button>
+            <button class="submit-button" id="need-submit-button" type="submit">Submit</button>
         </form>
 
 
@@ -84,12 +85,13 @@
           <div id="temporary-need-section">
               <!-- Temporary data for wants will be displayed here -->
               <button id="need-commit-button" type="button">Commit</button>
+              <button id="need-delete-all-button" class="delete-button" type="button">Delete all</button>
               <table id="temporary-need-table">
                   <thead>
                       <tr>
                           <th>Resource</th>
                           <th>Amount</th>
-                          <th>For Whom</th>
+                          <th>Who</th>
                           <th>Action</th>
                       </tr>
                   </thead>
@@ -109,9 +111,9 @@
       <input type="text" id="want-resource" maxlength="100" placeholder="Enter resource" required>
       <label for="want-amount">Amount</label>
       <input type="number" id="want-amount" placeholder="Enter amount" required>
-      <label for="want-whom">For Whom</label>
+      <label for="want-whom">Who</label>
       <input type="text" id="want-whom" placeholder="Enter name" required>
-      <button id="want-submit-button" type="submit">Submit</button>
+      <button class="submit-button" id="want-submit-button" type="submit">Submit</button>
     </form>
 
   
@@ -120,12 +122,13 @@
       <div id="temporary-want-div">
           <!-- Temporary data for wants will be displayed here -->
           <button id="want-commit-button" type="button">Commit</button>
+          <button id="want-delete-all-button" class="delete-button" type="button">Delete all</button>
           <table id="temporary-want-table">
               <thead>
                   <tr>
                       <th>Resource</th>
                       <th>Amount</th>
-                      <th>For Whom</th>
+                      <th>Who</th>
                       <th>Action</th>
                   </tr>
               </thead>

@@ -81,7 +81,7 @@ function addRow(type, formData) {
 // Define the updateTemporaryData function
 function updateTemporaryData(type, formData, action) {
   if (action === 'add') {
-    console.log('adding to ' + type)
+    console.log('adding to ' + type);
     temporaryData[type].push(formData);
     console.log('Temporary data');
     console.groupCollapsed(type);
@@ -98,6 +98,9 @@ function updateTemporaryData(type, formData, action) {
     if (index !== -1) {
       temporaryData[type].splice(index, 1);
     }
+  } else if (action === 'deleteAll') {
+    // Remove all entries for the given type
+    temporaryData[type] = [];
   }
 
   updateCommitButtonVisibility();
@@ -149,7 +152,9 @@ function updateCommitButtonVisibility() {
 $(document).ready(function() {
   console.log('Starting here...');
 
-  
+  displayTemporaryData('intake')
+  displayTemporaryData('need')
+  displayTemporaryData('want')
 
   // Set up form submissions
   submitForm('intake', 'intake');
@@ -162,6 +167,18 @@ $(document).ready(function() {
 
   // Fetch summary
   fetchSummary();
+
+  $('#intake-delete-all-button').click(function() {
+    updateTemporaryData('intake', null, 'deleteAll');
+  });
+
+  $('#need-delete-all-button').click(function() {
+    updateTemporaryData('need', null, 'deleteAll');
+  });
+
+  $('#want-delete-all-button').click(function() {
+    updateTemporaryData('want', null, 'deleteAll');
+  });
 
   // Add refresh button
   $('#refresh-button').click(function() {
@@ -189,7 +206,7 @@ function displaySummaryTable(tableId, data, title) {
 
   // Create and append table header
   var thead = $('<thead></thead>').appendTo(table);
-  var headerRow = $('<tr><th>txn_id</th><th>Resource</th><th>Amount</th><th>By Whom For Whom</th></tr>').appendTo(thead);
+  var headerRow = $('<tr><th>txn_id</th><th>Resource</th><th>Amount</th><th>Who</th></tr>').appendTo(thead);
 
   // Create and append table body
   var tbody = $('<tbody></tbody>').appendTo(table);

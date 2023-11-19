@@ -1,92 +1,18 @@
-/* styles */
-/* called by your view template */
-
-/* You might want to try something fancier: */
-/* less: http://lesscss.org/ */
-
+/* Reset box model for all elements */
 * {
   box-sizing: border-box;
 }
 
-body {
-  font-family: helvetica, arial, sans-serif;
-  margin: 25px;
-}
-
-h1 {
-  font-weight: bold;
-  color: rgb(0, 0, 0);
-}
-
-.bold {
-  font-weight: bold;
-}
-
-p {
-  max-width: 600px;
-}
-
-form {
-  margin-bottom: 25px;
-  padding: 15px;
-  background-color: rgb(175, 216, 216);
-  display: inline-block;
-  width: 100%;
-  max-width: 340px;
-  border-radius: 3px;
-}
-
-input {
-  display: block;
-  margin-bottom: 10px;
-  padding: 5px;
-  width: 100%;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-  font-size: 16px;
-}
-
-button {
-  font-size: 16px;
-  border-radius: 3px;
-  border: 1px solid rgb(81, 81, 81);
-  background-color: lightgrey;
-  cursor: auto;
-}
-
-button:hover {
-  background-color: yellow;
-}
-
-button:active {
-  box-shadow: none;
-}
-
-li {
-  margin-bottom: 5px;
-}
-
-footer {
-  margin-top: 50px;
-  padding-top: 25px;
-  border-top: 1px solid lightgrey;
-}
-
-footer > a {
-  color: #BBBBBB;
-}
-
-.nicejob {
-  text-decoration: line-through;
-}
-
+/* Global styles */
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
   background-color: #f5f5f5;
+  color: #333;
 }
 
+/* Header styles */
 header {
   background-color: #aaaaaa;
   color: #000000;
@@ -94,6 +20,7 @@ header {
   padding: 10px 0;
 }
 
+/* Main content styles */
 main {
   display: flex;
   flex-wrap: wrap;
@@ -101,6 +28,7 @@ main {
   padding: 20px;
 }
 
+/* Section styles */
 section {
   flex: 1;
   margin: 10px;
@@ -111,12 +39,14 @@ section {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Heading styles */
 h2 {
   color: #333;
   padding: 10px;
   margin: 0;
 }
 
+/* Form styles */
 form {
   padding: 10px;
 }
@@ -132,20 +62,30 @@ input {
   padding: 8px;
   margin-bottom: 10px;
   box-sizing: border-box;
+  border: 1px solid lightgrey; /* Ensure consistency with other inputs */
+  border-radius: 3px;
 }
 
+/* Button styles */
 button {
-  background-color: #919191;
-  color: #000000;
-  padding: 8px 16px;
+  background-color: #a0a0a0;
+  color: rgb(0, 0, 0);
+  padding: 2px 4px;
+  border-radius: 6px;
   border: none;
   cursor: pointer;
+  margin-top: 10px;
 }
 
 button:hover {
-  background-color: #726060;
+  background-color: rgb(186, 243, 175);
 }
 
+button:active {
+  box-shadow: none;
+}
+
+/* Table styles */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -157,19 +97,23 @@ th, td {
   padding: 12px;
   text-align: left;
 }
-
+.summary-table {
+  padding: 10px;
+}
+/* Transaction window styles */
 .txn-window {
-  padding: 5px;
+  padding: 10px;
   overflow: auto;
-  max-height: 500px; /* Set a max height and overflow for scrollable sections */
+  max-height: 500px;
 }
 
-/* Add styling for the commit button */
-.commit-button {
+/* Commit button styles */
+.refresh-button {
   background-color: #4CAF50;
   color: white;
   padding: 4px 8px;
   border: none;
+  border-radius: 6px;
   cursor: pointer;
   margin-top: 10px;
 }
@@ -178,15 +122,17 @@ th, td {
   background-color: #45a049;
 }
 
+/* Delete button styles */
 .delete-button {
-background-color: #ff8484;
-color: rgb(0, 0, 0);
-padding: 2px 2px;
-border: none;
-cursor: pointer;
-margin-top: 10px;
+  background-color: #fdb8b8;
+  color: #000;
+  padding: 2px 4px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
 .delete-button:hover {
-  background-color: #a04545;
+  background-color: #ff8585;
 }
