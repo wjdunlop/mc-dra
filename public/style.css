@@ -15,7 +15,7 @@ body {
 
 h1 {
   font-weight: bold;
-  color: pink;
+  color: rgb(0, 0, 0);
 }
 
 .bold {
@@ -29,7 +29,7 @@ p {
 form {
   margin-bottom: 25px;
   padding: 15px;
-  background-color: cyan;
+  background-color: rgb(175, 216, 216);
   display: inline-block;
   width: 100%;
   max-width: 340px;
@@ -49,10 +49,9 @@ input {
 button {
   font-size: 16px;
   border-radius: 3px;
+  border: 1px solid rgb(81, 81, 81);
   background-color: lightgrey;
-  border: 1px solid grey;
-  box-shadow: 2px 2px teal;
-  cursor: pointer;
+  cursor: auto;
 }
 
 button:hover {
@@ -79,4 +78,115 @@ footer > a {
 
 .nicejob {
   text-decoration: line-through;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+header {
+  background-color: #aaaaaa;
+  color: #000000;
+  text-align: center;
+  padding: 10px 0;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+
+section {
+  flex: 1;
+  margin: 10px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #333;
+  padding: 10px;
+  margin: 0;
+}
+
+form {
+  padding: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #919191;
+  color: #000000;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #726060;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.txn-window {
+  padding: 5px;
+  overflow: auto;
+  max-height: 500px; /* Set a max height and overflow for scrollable sections */
+}
+
+/* Add styling for the commit button */
+.commit-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 4px 8px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.commit-button:hover {
+  background-color: #45a049;
+}
+
+.delete-button {
+background-color: #ff8484;
+color: rgb(0, 0, 0);
+padding: 2px 2px;
+border: none;
+cursor: pointer;
+margin-top: 10px;
+}
+
+.delete-button:hover {
+  background-color: #a04545;
 }

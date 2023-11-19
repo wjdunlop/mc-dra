@@ -1,12 +1,3 @@
-<!-- This is a static file -->
-<!-- served from your routes in server.js -->
-
-<!-- You might want to try something fancier: -->
-<!-- html/nunjucks docs: http://mozilla.github.io/nunjucks/ -->
-<!-- jade: http://jade-lang.com/ -->
-<!-- haml: http://haml.info/tutorial.html -->
-<!-- hbs(handlebars): http://handlebarsjs.com/expressions.html -->
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -17,63 +8,140 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/public/style.css">
-  </head>
-  <body>
-    <header>
-      <h1>
-        MC-DRA v0.0.1
-      </h1>
-      <p>maintained by dxtron</p>
-    </header>
 
-    <main>
-      <p>Input resources that have been taken in</p>
-      <form>
-        <input type="text" maxlength="100" placeholder="resource">
-        <input type="number" placeholder="amount">
-        <input type="text" placeholder="by whom">
-        <button type="submit">Submit</button>
-      </form>
-      <section class="intakes">
-        <ul id="intakes">
-        </ul>
-      </section>
-    </main>
+</head>
+<body>
 
-    <main>
-      <p>Input resources that are REQUIRED</p>
-      <form>
-        <input type="text" maxlength="100" placeholder="resource">
-        <input type="number" placeholder="amount">
-        <input type="text" placeholder="for whom">
-        <button type="submit">Submit</button>
-      </form>
-      <section class="needs">
-        <ul id="needs">
-        </ul>
-      </section>
-    </main>
+<header>
+  <h1>MC-DRA v0.0.1</h1>
+  <p>Maintained by dxtron</p>
+</header>
+
+<main>
+  <section class="table-container" id="summary-table">
+      <h2>Summary Table</h2>
+      <button id="refresh-button">Refresh</button>
+      <table id="intakes-table"></table>
+      <hr>
+      <table id="needs-table"></table>
+      <hr>
+      <table id="wants-table"></table>
+  </section>
+</main>
+<main>
+  <section>
+      <h2>Intakes</h2>
+
+        <form class="intake-form" autocomplete="off">
+            <label for="intake-resource">Resource</label>
+            <input type="text" id="intake-resource" maxlength="100" placeholder="Enter resource" required>
+            <label for="intake-amount">Amount</label>
+            <input type="number" id="intake-amount" placeholder="Enter amount" required>
+            <label for="intake-whom">By Whom</label>
+            <input type="text" id="intake-whom" placeholder="Enter name" required>
+            <button id="intake-submit-button" type="submit">Submit</button>
+        </form>
 
 
-    <main>
-      <p>Input resources that are wanted</p>
-      <form>
-        <input type="text" maxlength="100" placeholder="resource">
-        <input type="number" placeholder="amount">
-        <input type="text" placeholder="for whom">
-        <button type="submit">Submit</button>
-      </form>
-      <section class="wants">
-        <ul id="wants">
-        </ul>
-      </section>
-    </main>
+        <section class="txn-window">
+          <h2>uncommitted intake txn</h2>
+          <div id="temporary-intake-section">
+              <!-- Temporary data for wants will be displayed here -->
+              <button id="intake-commit-button" type="button">Commit</button>
+              <table id="temporary-intake-table">
+                  <thead>
+                      <tr>
+                          <th>Resource</th>
+                          <th>Amount</th>
+                          <th>For Whom</th>
+                          <th>Action</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <!-- Temporary data rows will be appended here -->
+                  </tbody>
+              </table>
+            </div>
+        </section>
+  </section>
 
-    <!-- Your web-app is https, so your scripts need to be too -->
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
-            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
-            crossorigin="anonymous"></script>
-    <script src="/public/client.js"></script>
+  <section>
+      <h2>Needs</h2>
 
-  </body>
+        <form class="need-form" autocomplete="off">
+            <label for="need-resource">Resource</label>
+            <input type="text" id="need-resource" maxlength="100" placeholder="Enter resource" required>
+            <label for="need-amount">Amount</label>
+            <input type="number" id="need-amount" placeholder="Enter amount" required>
+            <label for="need-whom">For Whom</label>
+            <input type="text" id="need-whom" placeholder="Enter name" required>
+            <button id="need-submit-button" type="submit">Submit</button>
+        </form>
+
+
+        <section class="txn-window">
+          <h2>uncommitted need txn</h2>
+          <div id="temporary-need-section">
+              <!-- Temporary data for wants will be displayed here -->
+              <button id="need-commit-button" type="button">Commit</button>
+              <table id="temporary-need-table">
+                  <thead>
+                      <tr>
+                          <th>Resource</th>
+                          <th>Amount</th>
+                          <th>For Whom</th>
+                          <th>Action</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <!-- Temporary data rows will be appended here -->
+                  </tbody>
+              </table>
+            </div>
+        </section>
+  </section>
+
+  <section>
+    <h2>Wants</h2>
+
+    <form class="want-form" autocomplete="off">
+      <label for="want-resource">Resource</label>
+      <input type="text" id="want-resource" maxlength="100" placeholder="Enter resource" required>
+      <label for="want-amount">Amount</label>
+      <input type="number" id="want-amount" placeholder="Enter amount" required>
+      <label for="want-whom">For Whom</label>
+      <input type="text" id="want-whom" placeholder="Enter name" required>
+      <button id="want-submit-button" type="submit">Submit</button>
+    </form>
+
+  
+    <section class="txn-window" id="temporary-want-section">
+      <h2>uncommitted want txn</h2>
+      <div id="temporary-want-div">
+          <!-- Temporary data for wants will be displayed here -->
+          <button id="want-commit-button" type="button">Commit</button>
+          <table id="temporary-want-table">
+              <thead>
+                  <tr>
+                      <th>Resource</th>
+                      <th>Amount</th>
+                      <th>For Whom</th>
+                      <th>Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <!-- Temporary data rows will be appended here -->
+              </tbody>
+          </table>
+        </div>
+    </section>
+  </section>
+</main>
+
+
+<!-- Your web-app is https, so your scripts need to be too -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="/public/client.js"></script>
+
+</body>
 </html>
